@@ -6,47 +6,6 @@ A small collection of shell launchers for running **OpenArena OmegA** — the Qu
 
 Instead of hand-typing a long command line and a pile of `+set` cvars every session, you run one script and you're in the game.
 
----
-
-## What this is
-
-
----
-
-## Repository contents
-
-| File | Purpose |
-| --- | --- |
-| `OpenArena OmegA Vulkan Launcher (NVIDIA) v3.sh` | Current launcher. Recommended. |
-| `OpenArena OmegA Vulkan Launcher (NVIDIA).sh` | Earlier NVIDIA-specific variant. |
-| `OpenArena OmegA Vulkan Launcher v2.sh` | Previous revision, vendor-neutral naming. |
-| `vulkan-nvidia-copilot-version.sh` | Alternate/experimental variant. |
-| `LICENSE` | Repository license. |
-
-If you only take one file, take the **v3 (NVIDIA)** script.
-
----
-
-## What the script does
-
-Based on the portions of the v3 script I was able to read, it performs roughly these steps:
-
-1. **Resolves the engine binary** (default name `omega-x64`) and verifies it exists, printing the current directory and a hint to edit the `EXECUTABLE` line if it doesn't.
-2. **Marks it executable** (`chmod +x`, errors ignored).
-3. **Prints a startup banner** prefixed `[Omega Client Launcher]`, showing the detected system info, the real path to the executable, the GPU target (NVIDIA), whether GameMode and MangoHud are active, the shader cache location, and the process priority it will use.
-4. **Assembles the launch command**, layering optional wrappers and scheduling hints around the engine:
-
-   ```
-   $GAMEMODERUN $MANGOHUD nice -n $NICE_LEVEL ionice -c $IONICE_CLASS -n $IONICE_PRIORITY -- $EXECUTABLE
-   ```
-
-5. **Applies default cvars**, then appends any arguments you pass on the command line, so your flags win.
-6. **Reports the exit code** and exits with it.
-
-The header comments also discuss the NVIDIA shader cache (`~/.cache/nvidia-shader-cache`) and general Linux gaming/kernel tuning (schedulers, `ags` packages). Those are notes, not actions the script takes on your behalf.
-
----
-
 ## Requirements
 
 - **Linux x86-64.** The script relies on `nice`, `ionice` and POSIX shell behaviour.
@@ -57,14 +16,6 @@ The header comments also discuss the NVIDIA shader cache (`~/.cache/nvidia-shade
   - [`mangohud`](https://github.com/flightlessmango/MangoHud) — on-screen performance overlay.
 
 Verify your Vulkan stack before blaming the script:
-
-```bash
-vulkaninfo --summary
-```
-
----
-
-## Setup
 
 ```bash
 git clone https://github.com/gamevolt/A51-Openarena.git
