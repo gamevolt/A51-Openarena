@@ -25,10 +25,10 @@ SYSTEM_INFO=$(uname -a)
 # - Optional GPU performance tweaks
 #
 # Install on Arch/CachyOS: sudo pacman -S gamemode
-#
+#quick  hack to add mangohud prefix + volt 
 GAMEPERFORMANCE=""
 if command -v game-performance &> /dev/null; then
-    GAMEPERFORMANCE="game-performance volt --"
+    GAMEPERFORMANCE=""/home/user/.local/share/goverlay/gameconfig/global/bgmod" game-performance volt --"
     echo "[Omega] GameMode detected - will apply system optimizations"
 fi
 #    echo "[Omega] WARNING: GameMode not installed. Install for CPU governor/I/O priority tweaks."
