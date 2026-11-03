@@ -1,0 +1,45 @@
+#!/bin/sh
+#
+# FreeBSD script to explore available pre-compiled packages.
+# 
+# Usage example: 
+#	PKG_SEARCH nethack
+#
+# Output example:
+#	[_] egoboo                                   : 3D dungeon crawling adventure in the spirit of NetHack
+#	[_] falconseye                               : NetHack derivative
+#	[_] ja-nethack                               : Japanized NetHack
+#	[_] luna                                     : Display the moon's phase
+#	[_] nethack32                                : Dungeon explorin', slashin', hackin' game
+#	[_] nethack33                                : Dungeon explorin', slashin', hackin' game
+#	[_] nethack33-nox11                          : Dungeon explorin', slashin', hackin' game
+#	[_] nethack34                                : Dungeon explorin', slashin', hackin' game
+#	[_] nethack34-nox11                          : Dungeon explorin', slashin', hackin' game
+#	[_] nethack36                                : Dungeon explorin', slashin', hackin' game
+#	[X] nethack36-nox11                          : Dungeon explorin', slashin', hackin' game
+#	[_] scourge                                  : Rogue-like game
+#	[_] slashem-tty                              : Dungeon explorin', slashin', hackin' game
+#	[_] unnethack                                : New variant of NetHack
+#	[_] vultures-eye                             : Graphical interface for NetHack 3.4.3
+#	[_] xNetHack                                 : Experimental features and improvements applied to NetHack 3.7-dev
+#	[_] xNetHack-nox11                           : Experimental features and improvements applied to NetHack 3.7-dev
+#	[_] xNetHack-qt                              : Experimental features and improvements applied to NetHack 3.7-dev
+#
+
+for key in name pkg-name origin comment description
+do
+	pkg search -i -S "$key" -L comment "$*"
+done |
+	sed 's/^\([^ ]*\)-[^- ]* /\1 /' |
+	sort -u |
+	while read p d
+	do
+		if pkg info -e "$p"
+		then
+			i='[X]'
+		else
+			i='[_]'
+		fi
+		printf "%s %-40s : %s\n" "$i" "$p" "$d"
+	done | less
+
