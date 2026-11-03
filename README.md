@@ -1,5 +1,160 @@
 # Script i will use to make my life easier on A51 Open Arena
 
+# A51 OpenArena — OmegA Vulkan Launcher
+
+A small collection of shell launchers for running **OpenArena OmegA** — the Quake3e-based engine with a Vulkan renderer — on Linux with an NVIDIA GPU, configured for play on the [Area 51 (A51)](https://q3a51.com) Quake III Arena servers.
+
+Instead of hand-typing a long command line and a pile of `+set` cvars every session, you run one script and you're in the game.
+
+---
+
+## What this is
+
+
+---
+
+## Repository contents
+
+| File | Purpose |
+| --- | --- |
+| `OpenArena OmegA Vulkan Launcher (NVIDIA) v3.sh` | Current launcher. Recommended. |
+| `OpenArena OmegA Vulkan Launcher (NVIDIA).sh` | Earlier NVIDIA-specific variant. |
+| `OpenArena OmegA Vulkan Launcher v2.sh` | Previous revision, vendor-neutral naming. |
+| `vulkan-nvidia-copilot-version.sh` | Alternate/experimental variant. |
+| `LICENSE` | Repository license. |
+
+If you only take one file, take the **v3 (NVIDIA)** script.
+
+---
+
+## What the script does
+
+Based on the portions of the v3 script I was able to read, it performs roughly these steps:
+
+1. **Resolves the engine binary** (default name `omega-x64`) and verifies it exists, printing the current directory and a hint to edit the `EXECUTABLE` line if it doesn't.
+2. **Marks it executable** (`chmod +x`, errors ignored).
+3. **Prints a startup banner** prefixed `[Omega Client Launcher]`, showing the detected system info, the real path to the executable, the GPU target (NVIDIA), whether GameMode and MangoHud are active, the shader cache location, and the process priority it will use.
+4. **Assembles the launch command**, layering optional wrappers and scheduling hints around the engine:
+
+   ```
+   $GAMEMODERUN $MANGOHUD nice -n $NICE_LEVEL ionice -c $IONICE_CLASS -n $IONICE_PRIORITY -- $EXECUTABLE
+   ```
+
+5. **Applies default cvars**, then appends any arguments you pass on the command line, so your flags win.
+6. **Reports the exit code** and exits with it.
+
+The header comments also discuss the NVIDIA shader cache (`~/.cache/nvidia-shader-cache`) and general Linux gaming/kernel tuning (schedulers, `ags` packages). Those are notes, not actions the script takes on your behalf.
+
+---
+
+## Requirements
+
+- **Linux x86-64.** The script relies on `nice`, `ionice` and POSIX shell behaviour.
+- **NVIDIA GPU** with a reasonably current proprietary driver exposing Vulkan.
+- **OpenArena OmegA** engine build containing the Vulkan renderer, with the `omega-x64` binary extracted somewhere on disk.
+- **Optional but recommended:**
+  - [`gamemode`](https://github.com/FeralInteractive/gamemode) — CPU governor and scheduling tweaks during play.
+  - [`mangohud`](https://github.com/flightlessmango/MangoHud) — on-screen performance overlay.
+
+Verify your Vulkan stack before blaming the script:
+
+```bash
+vulkaninfo --summary
+```
+
+---
+
+## Setup
+
+```bash
+git clone https://github.com/gamevolt/A51-Openarena.git
+cd A51-Openarena
+
+chmod +x "OpenArena OmegA Vulkan Launcher (NVIDIA) v3.sh"
+./"OpenArena OmegA Vulkan Launcher (NVIDIA) v3.sh"
+```
+
+Then point the script at wherever you unpacked OmegA. Open the script in an editor and set:
+
+```bash
+EXECUTABLE="/full/path/to/omega-x64"
+```
+
+Run it from the directory containing your `baseoa` data folder, or make sure the engine can find it — Quake-family engines resolve game data relative to the binary and the user's home config directory, so mismatched paths are the usual cause of "no game data" errors.
+
+---
+
+## Default cvars applied
+
+These are the settings the v3 script sets before handing control to the engine:
+
+| Cvar | Value | Why |
+| --- | --- | --- |
+| `vid_renderer` | `vulkan` | Selects the Vulkan backend. |
+| `r_swapInterval` | `0` | Disables VSync, removing its input lag. |
+| `com_maxfps` | `0` | Uncapped frame rate. |
+| `r_vbo` | `1` | Vertex buffer objects for static geometry. |
+| `r_dynamicLight` | `2` | Per-pixel dynamic lighting. |
+| `in_mouse` | `1` | Raw mouse input. |
+| `cl_maxpackets` | `125` | Higher client packet rate. |
+| `snaps` | `40` | Server snapshot rate. |
+| `r_picmip` | `0` | Full texture detail. |
+| `r_textureMode` | `GL_LINEAR_MIPMAP_LINEAR` | Trilinear filtering. |
+
+Anything you pass on the command line is appended afterwards, so you can override any of these per-run:
+
+```bash
+./"OpenArena OmegA Vulkan Launcher (NVIDIA) v3.sh" +set com_maxfps 250
+```
+
+---
+
+## Connecting to Area 51 servers
+
+Per Area 51's own getting-started guide:
+
+1. Browse the [server list](https://q3a51.com/servers) to see who's online.
+2. Click a server address to copy its `/connect` command.
+3. In game, open the console with `~`, paste the command, press Enter.
+4. Press `Escape` → **Advanced Setup** to configure the mod's settings.
+
+The A51 client mod itself is obtained from inside the game: connect to any Area 51 server, open the console, and run the command shown on [q3a51.com/play](https://q3a51.com/play). Playing without the mod is possible; the community strongly recommends against it.
+
+---
+
+## Configuration knobs
+
+Everything tunable lives near the top of the script:
+
+- `EXECUTABLE` — full path to the engine binary.
+- `GAMEMODERUN` / `MANGOHUD` — wrapper prefixes; leave empty to disable either.
+- `NICE_LEVEL` — process niceness for the engine.
+- `IONICE_CLASS` / `IONICE_PRIORITY` — I/O scheduling class and priority.
+- `DEFAULT_CVARS` — the accumulated cvar string listed above.
+
+---
+
+## Troubleshooting
+
+**"Executable not found"** — the `EXECUTABLE` path is wrong. The script prints your current working directory to help you fix it.
+
+**Window opens black or crashes immediately** — confirm the driver exposes Vulkan (`vulkaninfo --summary`) and that your OmegA build actually includes the Vulkan renderer. Not every build does.
+
+**Still feels laggy** — `r_swapInterval 0` is already set. Check that GameMode is actually engaging (the banner tells you), disable desktop compositing, and confirm the display is running at its intended refresh rate.
+
+**Visible tearing after disabling VSync** — that's the trade-off. Set `r_swapInterval 1` on the command line, or force VSync in the driver control panel.
+
+**Mouse feels floaty** — verify `in_mouse 1` survived; some configs reset it.
+
+## Credits
+
+- **OpenArena** — free, GPL Quake III Arena content and engine.
+- **OmegA** — mod and engine work by Bishop-333 and contributors.
+- **Quake3e** — the engine lineage OmegA builds on.
+- **Kenny Edition** — origin of the Vulkan renderer.
+- **Area 51** — servers, client mod and community.
+
+Quake III Arena is a trademark of id Software. Neither OpenArena nor this launcher is affiliated with or endorsed by id Software.
 
 
 **NOTE:** 
