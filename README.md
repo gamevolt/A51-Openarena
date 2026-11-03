@@ -62,7 +62,7 @@ Then point the script at wherever you unpacked OmegA. Open the script in an edit
 EXECUTABLE="/full/path/to/omega-x64"
 ```
 
-Run it from the directory containing your `baseoa` data folder, or make sure the engine can find it  Quake-family engines resolve game data relative to the binary and the user's home config directory, so mismatched paths are the usual cause of "no game data" errors.
+Run it from the directory containing your `baseoa` data folder so the root folder with the executable, or make sure the engine can find it  Quake-family engines resolve game data relative to the binary and the user's home config directory, so mismatched paths are the usual cause of "no game data" errors.
 
 ---
 
