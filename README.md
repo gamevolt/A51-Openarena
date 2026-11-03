@@ -108,6 +108,4 @@ Everything tunable lives near the top of the script:
 Quake III Arena is a trademark of id Software. Neither OpenArena nor this launcher is affiliated with or endorsed by id Software.
 
 **NOTE:**
-
-ROTATE_SCREEN.sh
-:
+ I still have a lot to learn about quake and the client so feel free to contribute
