@@ -19,9 +19,9 @@
    $$        █▒▒░    ▓█       ▀▀▀▀▀▀     ▀▀▀▀▀▀       █▓    ░░▒█       $$       
          ,$$█████████████████████████████████████████████████████$$,          
          $$$   Competitive gaming & late-night casual runs       $$$
-          $$'  Debates, hot takes, and unfiltered gaming talk :handshake: '$$
+          $$'                                         k :handshake: '$$
    ███████$███   Resource & file sharing for the community     ███$███████
-   █▒▒▒░░ '▓▓█        :wrench: We're under construction              █▓▓' ░░▒▒▒█
+   █▒▒▒░░ '▓▓█        :wrench: We're under construction         █▓▓' ░░▒▒▒█
    ██▒░░   ▓██                                                 ██▓   ░░▒██
     █▒░░   ▓█              twitch/AimdingusTV                   █▓   ░░▒█
     █▒░░   ▓█         youtube.com/aimdingustv                   █▓   ░░▒█
@@ -43,8 +43,8 @@ Instead of hand-typing a long command line and a pile of `+set` cvars every sess
 - **NVIDIA GPU** with a reasonably current proprietary driver exposing Vulkan.
 - **OpenArena OmegA** engine build containing the Vulkan renderer, with the `omega-x64` binary extracted somewhere on disk.
 - **Optional but recommended:**
-  - [`gamemode`](https://github.com/FeralInteractive/gamemode) — CPU governor and scheduling tweaks during play.
-  - [`mangohud`](https://github.com/flightlessmango/MangoHud) — on-screen performance overlay.
+  - [`gamemode`](https://github.com/FeralInteractive/gamemode)  CPU governor and scheduling tweaks during play.
+  - [`mangohud`](https://github.com/flightlessmango/MangoHud)  on-screen performance overlay.
 
 Verify your Vulkan stack before blaming the script:
 
@@ -106,13 +106,49 @@ The A51 client mod itself is obtained from inside the game: connect to any Area 
 
 ## Credits
 
-- **OpenArena** — free, GPL Quake III Arena content and engine.
-- **OmegA** — mod and engine work by Bishop-333 and contributors.
-- **Quake3e** — the engine lineage OmegA builds on.
-- **Kenny Edition** — origin of the Vulkan renderer.
-- **Area 51** — servers, client mod and community.
+- **OpenArena**  free, GPL Quake III Arena content and engine.
+- **OmegA**  mod and engine work by Bishop-333 and contributors.
+- **Quake3e**  the engine lineage OmegA builds on.
+- **Kenny Edition**  origin of the Vulkan renderer.
+- **Area 51** servers, client mod and community.
 
 Quake III Arena is a trademark of id Software. Neither OpenArena nor this launcher is affiliated with or endorsed by id Software.
 
 **NOTE:**
  I still have a lot to learn about quake and the client so feel free to contribute
+```     ▄▄▄▀█                                     ▄██▒▄ ▄███░█▄  ▀▀       
+           ▄▓▓▓██▄  ▄█▄                               ▐████▒▌██▀███▓▌          
+          ▐░██████▌  ▀                                 ▀███▀▐█▄ ▄██▓▌          
+          ▄▄▀█████▌                                       ▄  ▀█████▀           
+         ▐▒█▌████▀                                       ▀▒▀ █▄▀▀▀             
+          ▀▀ ▀▀▀▄█                                           ▓████             
+             ████▓                                           ▒████             
+             ████▒                                           ░████             
+             ████░                                           ░████             
+             ████                                             ████
+             ████                                            ░████             
+             ████░                                           ▒████             
+             ████░                                           ▓████             
+             ████▒                                           █████             
+             ████▓                                           ▄▄▄▀█             
+        ▄    █████                                   ▄▓▄   ▄████▓▄             
+      ▄█▒█▄  ▀▄▄▄▄    ▄▄                              ▀   ▐██████▓▌            
+       ▀█▀  ▄█░░░██▄ ▐░█▌                                 ▐██████▓▌            
+           ▐▀ ▀█████▌ ▀▀                               ▄██▌▀█████▀             
+           █▒▄███████ ▄█▄                             ▐█▀███▄▀▀▀               
+           ▐█▓██████▌▄ ▀                              █▄ ▄██▓█  ▄▄             
+            ▀█▓████▀▄██▄                         ▄██░▄▐█████▒▌ ▐░▓▌            
+              ▀▀▀▀▄█████▌▄░███▄ ▄▓█▄            ▐████▓▌▀███░▀   ▀▀             
+                ▐▓█████▌▐▓█████▐▒███▌█████▄  ▄▄▄ ▀███▀▄█▄▄▄▄▄                  
+           ▄▒▄   ▀▓▒███▌█▓█████▄▀██▀▄██████░▄▐███▓▄ ▄███████▓▌   ▄             
+            ▀  ▄██▄▀▀▀  ▀▀▀▀▀▀▀▀ ▄▄░████████░▌████▓▌████████▓▓  ▀░▀            
+              ▐████▌AimDingus    ▐▓███████████▐████▓▐███████▓▌                 
+              █▓███▄▄▄▄          █▓███████████▐████▒ ▀████░▒▀                  
+              ▐▓▓█████▌   ▄      ▐▓█████▀ ▀██▌▀▀██░▌   ▀▀▀▀                    
+               ▀▓▒░██▀  ▄█░█▄     ▀▓▒████▄██▀▄██▄▀▀  ▄▄                        
+                 ▀▀▀     ▀█▀   ▄▄   ▀░░███▀ ▐▓███▌  ▐█▓▌                       
+         ▄▄                   ▐█░▌           ▀▒█▀    ▀▀                        
+        ▐░▒▌                   ▀▀          ▄                                   
+         ▀▀                               ▀█▀               ▄▄                 
+                                                           ▐█░▌                
+                                                            ▀▀    ```
