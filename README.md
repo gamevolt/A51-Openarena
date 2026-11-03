@@ -1,8 +1,39 @@
 # Script i will use to make my life easier on A51 Open Arena
 
-# A51 OpenArena — OmegA Vulkan Launcher
+```
+                                ▓▓▓▓▓▓▓▓▓▓▓▓▓
+                               ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+                              ▓████▓▓▓▓▓▓▓████▓
+                             ▓▓▓▓░█▓▓▓▓▓▓▓█░▓▓▓▓
+                            ▓▓▓▓▓░█████████░▓▓▓▓▓
+                           ▓▓▓▓▓▓░█░▓▓▓▓▓░█░▓▓▓▓▓▓
+            ████████████  ▓▓▓▓▓▓▓░█░▓▓▓▓▓░█░▓▓▓▓▓▓▓  ████████████
+            █▒▒▒░░  ▓▓▓█  ▓▓▓▓▓▓▓░░░▓▓▓▓▓░░░▓▓▓▓▓▓▓  █▓▓▓  ░░▒▒▒█
+            ██▒░░    ▓██  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ██▓    ░░▒██
+             █▀▀▀▀▀▀ ▓█    ▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓    █▓ ▀▀▀▀▀▀█
+             █▒░░    ▓█          ▒▒▒▒▒▒▒▒▒▒▒          █▓    ░░▒█
+             █▒░░    ▓█         ▒▒▒▒▒▒▒▒▒▒▒▒▒         █▓    ░░▒█   
+             █▒░░    ▓█       ████▒▒▒▒▒▒▒▒▒▒▒██       █▓    ░░▒█   
+   '         █▒░░    ▓█      ██████▒▒▒▒▒▒▒██████      █▓    ░░▒█        '
+   $.        █▒░░    ▓█      ▀██████▒▒▒▒▒██████▀      █▓    ░░▒█       .$
+   $$        █▒▒░    ▓█       ▀▀▀▀▀▀     ▀▀▀▀▀▀       █▓    ░░▒█       $$       
+         ,$$█████████████████████████████████████████████████████$$,          
+         $$$   Competitive gaming & late-night casual runs       $$$
+          $$'  Debates, hot takes, and unfiltered gaming talk :handshake: '$$
+   ███████$███   Resource & file sharing for the community     ███$███████
+   █▒▒▒░░ '▓▓█        :wrench: We're under construction              █▓▓' ░░▒▒▒█
+   ██▒░░   ▓██                                                 ██▓   ░░▒██
+    █▒░░   ▓█              twitch/AimdingusTV                   █▓   ░░▒█
+    █▒░░   ▓█         youtube.com/aimdingustv                   █▓   ░░▒█
+    █▒░░   ▓█                                                   █▓   ░░▒█
+    ██▒▒░  ▓▓███████████████████████████████████████████████████▓▓  ░▒▒██
+     ██▒▒░  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ░▒▒██
+        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
+         ▀████████████████████████████████████████████████████████▀```
 
-A small collection of shell launchers for running **OpenArena OmegA** — the Quake3e-based engine with a Vulkan renderer — on Linux with an NVIDIA GPU, configured for play on the [Area 51 (A51)](https://q3a51.com) Quake III Arena servers.
+# A51 OpenArena  OmegA Vulkan Launcher
+
+A small collection of shell launchers for running **OpenArena OmegA**  the Quake3e-based engine with a Vulkan renderer on Linux with an NVIDIA GPU, configured for play on the [Area 51 (A51)](https://q3a51.com) Quake III Arena servers.
 
 Instead of hand-typing a long command line and a pile of `+set` cvars every session, you run one script and you're in the game.
 
@@ -31,7 +62,7 @@ Then point the script at wherever you unpacked OmegA. Open the script in an edit
 EXECUTABLE="/full/path/to/omega-x64"
 ```
 
-Run it from the directory containing your `baseoa` data folder, or make sure the engine can find it — Quake-family engines resolve game data relative to the binary and the user's home config directory, so mismatched paths are the usual cause of "no game data" errors.
+Run it from the directory containing your `baseoa` data folder, or make sure the engine can find it  Quake-family engines resolve game data relative to the binary and the user's home config directory, so mismatched paths are the usual cause of "no game data" errors.
 
 ---
 
