@@ -73,30 +73,6 @@ The A51 client mod itself is obtained from inside the game: connect to any Area 
 
 ---
 
-## Configuration knobs
-
-Everything tunable lives near the top of the script:
-
-- `EXECUTABLE` — full path to the engine binary.
-- `GAMEMODERUN` / `MANGOHUD` — wrapper prefixes; leave empty to disable either.
-- `NICE_LEVEL` — process niceness for the engine.
-- `IONICE_CLASS` / `IONICE_PRIORITY` — I/O scheduling class and priority.
-- `DEFAULT_CVARS` — the accumulated cvar string listed above.
-
----
-
-## Troubleshooting
-
-**"Executable not found"** — the `EXECUTABLE` path is wrong. The script prints your current working directory to help you fix it.
-
-**Window opens black or crashes immediately** — confirm the driver exposes Vulkan (`vulkaninfo --summary`) and that your OmegA build actually includes the Vulkan renderer. Not every build does.
-
-**Still feels laggy** — `r_swapInterval 0` is already set. Check that GameMode is actually engaging (the banner tells you), disable desktop compositing, and confirm the display is running at its intended refresh rate.
-
-**Visible tearing after disabling VSync** — that's the trade-off. Set `r_swapInterval 1` on the command line, or force VSync in the driver control panel.
-
-**Mouse feels floaty** — verify `in_mouse 1` survived; some configs reset it.
-
 ## Credits
 
 - **OpenArena** — free, GPL Quake III Arena content and engine.
