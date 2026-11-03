@@ -39,18 +39,18 @@ Run it from the directory containing your `baseoa` data folder, or make sure the
 
 These are the settings the v3 script sets before handing control to the engine:
 
-| Cvar | Value | Why |
-| --- | --- | --- |
-| `vid_renderer` | `vulkan` | Selects the Vulkan backend. |
-| `r_swapInterval` | `0` | Disables VSync, removing its input lag. |
-| `com_maxfps` | `0` | Uncapped frame rate. |
-| `r_vbo` | `1` | Vertex buffer objects for static geometry. |
-| `r_dynamicLight` | `2` | Per-pixel dynamic lighting. |
-| `in_mouse` | `1` | Raw mouse input. |
-| `cl_maxpackets` | `125` | Higher client packet rate. |
-| `snaps` | `40` | Server snapshot rate. |
-| `r_picmip` | `0` | Full texture detail. |
-| `r_textureMode` | `GL_LINEAR_MIPMAP_LINEAR` | Trilinear filtering. |
+| Cvar             | Value                     | Why                                        |
+| ---------------- | ------------------------- | ------------------------------------------ |
+| `vid_renderer`   | `vulkan`                  | Selects the Vulkan backend.                |
+| `r_swapInterval` | `0`                       | Disables VSync, removing its input lag.    |
+| `com_maxfps`     | `0`                       | Uncapped frame rate.                       |
+| `r_vbo`          | `1`                       | Vertex buffer objects for static geometry. |
+| `r_dynamicLight` | `2`                       | Per-pixel dynamic lighting.                |
+| `in_mouse`       | `1`                       | Raw mouse input.                           |
+| `cl_maxpackets`  | `125`                     | Higher client packet rate.                 |
+| `snaps`          | `40`                      | Server snapshot rate.                      |
+| `r_picmip`       | `0`                       | Full texture detail.                       |
+| `r_textureMode`  | `GL_LINEAR_MIPMAP_LINEAR` | Trilinear filtering.                       |
 
 Anything you pass on the command line is appended afterwards, so you can override any of these per-run:
 
@@ -107,10 +107,7 @@ Everything tunable lives near the top of the script:
 
 Quake III Arena is a trademark of id Software. Neither OpenArena nor this launcher is affiliated with or endorsed by id Software.
 
-
-**NOTE:** 
-
+**NOTE:**
 
 ROTATE_SCREEN.sh
-: 
-
+:
